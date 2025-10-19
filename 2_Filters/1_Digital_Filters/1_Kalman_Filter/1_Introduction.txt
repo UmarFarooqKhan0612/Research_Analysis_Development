@@ -1,0 +1,54 @@
+
+>> The Kalman Filter is a powerful mathematical algorithm used to estimate the true state of a system from a series of noisy or uncertain measurements.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+>> Concept
+
+  Imagine you’re trying to track the position of a moving car using a GPS.
+  * The GPS data is noisy — it jumps around a bit each time.
+  * The car’s motion (speed, acceleration) follows predictable physics.
+ 
+  A Kalman Filter (KF) combines:
+  * What you measure (e.g., GPS position)
+  * What you predict (based on previous motion and physics)
+  to produce a better estimate than either alone.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+>> How It Works (Simplified)
+   
+   The Kalman Filter works in two main steps:
+
+     1 - Prediction step:
+     * It predicts the next state (e.g., position, velocity) based on the previous state and a model of the system.
+     * Example: "Given my last known position and velocity, I think I’ll be here next."
+
+     2 - Correction (update) step:
+     * It updates that prediction using the new measurement.
+     * Example: "The GPS reading says I’m a bit off, so let’s adjust slightly."
+     It repeats this cycle continuously.
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+>> Why It’s Used
+   
+   Because real-world sensors are noisy, and you want smooth, accurate, and reliable data.
+   
+   Common uses:
+   1 - Navigation systems (GPS + IMU fusion)
+   2 - Robotics (localization, tracking)
+   3 - Drones and aircraft (stabilization, attitude estimation)
+   4 - Sensor fusion (combining accelerometer, gyroscope, magnetometer data)
+   5 - Finance & control systems (state estimation)
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+>>  Example with an MPU6050
+    1 - The MPU6050 gives raw data from:
+    * A 3-axis accelerometer
+    * A 3-axis gyroscope
+
+    2 - Both are noisy:
+    * Accelerometer drifts due to vibration and gravity.
+    * Gyroscope drifts over time (bias error).
+
+    3 - The Kalman Filter combines both readings:
+    * Gyro gives short-term precision.
+    * Accelerometer gives long-term stability.
+
+Together, you get a stable and accurate orientation (angle or position).
+_______________________________________________________________________________________________________________________________________________________________________________________________________________
+
